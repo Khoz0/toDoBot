@@ -41,8 +41,7 @@ public class CommandReminder implements CommandExecutor {
 
         BufferedReader br = new BufferedReader(fr);
         String line;
-        while((line = br.readLine()) != null)
-        {
+        while((line = br.readLine()) != null){
             stringBuilder.append(line);
             stringBuilder.append("\n");
         }
