@@ -21,6 +21,13 @@ A later step will be to add an end date and to notify the users as it approchs. 
 ## Third step
 
 The third step was to browse the reminding tasks with the command `!reminder`.
-This command has two aliasses that are `!reminder` and `!r`.
+This command has two aliasses that are `!reminder` and `!re`.
 The process is to browse the local text file to see all the tasks left.
-The later steps are to see it throught a database and to see the time remaining before the task get old.
+The later steps are to see it throught the database and to see the time remaining before the task get old.
+
+## Fourth step
+
+The fourth step was to have the possibility to remove a task from the text file by using the command `!remove`.
+This command has two aliasses that are `!remove` and `!rm`.
+The process is to enter the id of the line to remove. The file is browsed and the line corresponding to the id is deleted. Then the different ids are reordered.
+The later step is to remove the tasks throught the database.
