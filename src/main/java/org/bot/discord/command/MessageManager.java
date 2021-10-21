@@ -17,6 +17,7 @@ public class MessageManager {
     static {
         registry.addCommand(new Command("ping", "Ping the bot", new CommandPing(), "ping", "p"));
         registry.addCommand(new Command("todo", "add a task", new CommandTodo(), "todo", "t"));
+        registry.addCommand(new Command("reminder", "see the tasks", new CommandReminder(), "reminder", "r"));
     }
 
     private static final String PREFIX = Main.getConfigManager().getToml().getString("bot.prefix");
