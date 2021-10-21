@@ -1,0 +1,18 @@
+org/bot/discord/utils/ConfigManager.java
+ org.bot.discord.utils.ConfigManager
+org/bot/discord/command/Command.java
+ org.bot.discord.command.Command
+org/bot/discord/command/CommandPing.java
+ org.bot.discord.command.CommandPing
+org/bot/discord/command/CommandExecutor.java
+ org.bot.discord.command.CommandExecutor
+org/bot/discord/command/CommandRegistry.java
+ org.bot.discord.command.CommandRegistry
+org/bot/discord/Main.java
+ org.bot.discord.Main
+org/bot/discord/command/MessageManager.java
+ org.bot.discord.command.MessageManager
+org/bot/discord/command/CommandTodo.java
+ org.bot.discord.command.CommandTodo
+org/bot/discord/command/CommandReminder.java
+ org.bot.discord.command.CommandReminder
