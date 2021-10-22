@@ -15,6 +15,11 @@ public class CommandTodo implements CommandExecutor {
     private File fileTodo;
     private int id = 0;
 
+    /**
+     * @param event   the message listened by the bot
+     * @param command the command adapted to the message
+     * @param args    the information to complete the command
+     */
     @Override
     public void run(MessageCreateEvent event, Command command, String[] args) {
         try {
@@ -28,6 +33,10 @@ public class CommandTodo implements CommandExecutor {
         }
     }
 
+    /**
+     * The method to verify if a to-do file already exists and to create it if not
+     * @throws IOException the exception thrown by the file creation
+     */
     private void createFile() throws IOException {
         fileTodo = new File("todo.txt");
         if (fileTodo.createNewFile()) {
@@ -37,6 +46,10 @@ public class CommandTodo implements CommandExecutor {
         }
     }
 
+    /**
+     * The method to recuperate the ids of the differents to-do tasks
+     * @throws IOException the exception thrown by the reading of the file
+     */
     private void idRecuperation() throws IOException {
         FileReader fr = new FileReader(fileTodo);
 
@@ -51,6 +64,11 @@ public class CommandTodo implements CommandExecutor {
         fr.close();
     }
 
+    /**
+     * The method to write the to-do tasks added in the to-do file
+     * @param args the instructions of the to-do tasks
+     * @throws IOException the exception thrown by the writing of the file
+     */
     private void writeToDoTask(String... args) throws IOException {
         id++;
         String idString = String.valueOf(id);

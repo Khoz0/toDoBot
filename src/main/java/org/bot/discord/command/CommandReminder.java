@@ -13,18 +13,27 @@ public class CommandReminder implements CommandExecutor {
 
     private File fileTodo;
 
+    /**
+     * @param event   the message listened by the bot
+     * @param command the command adapted to the message
+     * @param args    the information to complete the command
+     */
     @Override
     public void run(MessageCreateEvent event, Command command, String[] args) {
         try {
             createFile();
             String printTasks = browseFile();
-            event.getChannel().sendMessage("```"+printTasks+"```");
+            event.getChannel().sendMessage(""+printTasks+"");
         }
         catch (Exception e) {
             System.err.println(e);
         }
     }
 
+    /**
+     * The method to verify if a to-do file already exists and to create it if not
+     * @throws IOException the exception thrown by the file creation
+     */
     private void createFile() throws IOException {
         fileTodo = new File("todo.txt");
         if (fileTodo.createNewFile()) {
@@ -34,6 +43,11 @@ public class CommandReminder implements CommandExecutor {
         }
     }
 
+    /**
+     * The method to browse the to-do tasks in the to-do file
+     * @return the concatenated list of the to-do tasks
+     * @throws IOException the exception thrown by the reading of the file
+     */
     private String browseFile() throws IOException {
         FileReader fr = new FileReader(fileTodo);
 

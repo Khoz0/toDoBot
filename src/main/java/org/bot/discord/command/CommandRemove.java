@@ -14,6 +14,11 @@ public class CommandRemove implements CommandExecutor {
     private File fileTodo;
     private StringBuilder stringBuilder;
 
+    /**
+     * @param event   the message listened by the bot
+     * @param command the command adapted to the message
+     * @param args    the information to complete the command
+     */
     @Override
     public void run(MessageCreateEvent event, Command command, String[] args) {
         if (args.length > 1){
@@ -32,6 +37,10 @@ public class CommandRemove implements CommandExecutor {
         }
     }
 
+    /**
+     * The method to verify if a to-do file already exists and to create it if not
+     * @throws IOException the exception thrown by the file creation
+     */
     private void createFile() throws IOException {
         fileTodo = new File("todo.txt");
         if (fileTodo.createNewFile()) {
@@ -41,6 +50,11 @@ public class CommandRemove implements CommandExecutor {
         }
     }
 
+    /**
+     * the method to delete a task from the to-do file
+     * @param idToRemove the id of the task to remove from the to-do file
+     * @throws IOException the exception thrown by the reading and the writing of the to-do file
+     */
     private void deleteTask(String idToRemove) throws IOException {
 
         FileReader fr = new FileReader(fileTodo);
@@ -62,12 +76,21 @@ public class CommandRemove implements CommandExecutor {
         myWriter.close();
     }
 
+    /**
+     * The method to rewrite the to-do file with the to-do tasks left after a modification of the tasks
+     * @param newToDoFile the new to-do file in which the tasks are rewritten
+     * @throws IOException the exception thrown by the writing of the file
+     */
     private void rewriteTasks(String newToDoFile) throws IOException {
         FileWriter myWriter = new FileWriter(fileTodo);
         myWriter.write(newToDoFile);
         myWriter.close();
     }
 
+    /**
+     * The method to reorder the ids of the tasks
+     * @throws IOException the exception thrown by the writing of the file
+     */
     private void reOrderIds() throws IOException {
         int id = 1;
 
