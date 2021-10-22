@@ -41,3 +41,21 @@ This command has two aliases that are `!remove` and `!rm`.
 The process is to enter the id of the line to remove. The file is browsed and the line corresponding to the id is deleted. Then the different ids are reordered.
 
 The later step is to remove the tasks through the database.
+
+## Fifth step
+
+The fifth step was to see the urgent tasks with the command `!urgent`.
+
+This command has two aliases that are `!urgent`and `!u`.
+
+The process is to browse the local text file and check if there is a date in the tasks. If there is, it will check if the date is in the three next days. If this is in the next three days, the users of the discord server will be notify by the `@everyone` tag and the message will contain the urgent tasks.
+
+The later steps are to store the date in a database, linked with the task id. Then we can check if there is a task with a urgent date or not.
+
+## Sixth step
+
+The sixth step was to show all the command available with the command `!help`.
+
+This command has two aliases that are `!help` and `!h`.
+
+This command show the commands available, and explain if there are some specific use cases.
