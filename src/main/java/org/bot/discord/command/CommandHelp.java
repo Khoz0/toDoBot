@@ -21,13 +21,26 @@ public class CommandHelp implements CommandExecutor {
         ArrayList<Command> commands = MessageManager.getRegistry().getCommands();
         StringBuilder stringBuilder = new StringBuilder();
 
+        stringBuilder.append("List of commands:\n```");
+
         for (Command c: commands){
+            stringBuilder.append("!");
             stringBuilder.append(c.getId());
-            stringBuilder.append(" ");
+            stringBuilder.append(": ");
             stringBuilder.append(c.getDescription());
-            stringBuilder.append(" ");
-            stringBuilder.append(Arrays.toString(c.getAliases()));
-            stringBuilder.append("\n");
+            stringBuilder.append(". Aliases: ");
+            int cpt = 0;
+            for (String s: c.getAliases()) {
+                stringBuilder.append(s);
+                if (cpt < c.getAliases().length-1){
+                    stringBuilder.append(", ");
+                }
+                cpt++;
+            }
+            stringBuilder.append(".\n");
         }
+
+        stringBuilder.append("```");
+        event.getChannel().sendMessage(String.valueOf(stringBuilder));
     }
 }

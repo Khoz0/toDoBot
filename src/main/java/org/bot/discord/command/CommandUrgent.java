@@ -27,7 +27,7 @@ public class CommandUrgent implements CommandExecutor {
             String printTasks = browseFile();
             String urgentTasks = getUrgentTasks(printTasks);
             if (!urgentTasks.equals("")){
-                event.getChannel().sendMessage("@everyone\n```"+urgentTasks+"```");
+                event.getChannel().sendMessage("@everyone, urgent tasks to do:\n```"+urgentTasks+"```");
             }else{
                 event.getChannel().sendMessage("No urgent tasks here !");
             }
@@ -37,20 +37,36 @@ public class CommandUrgent implements CommandExecutor {
         }
     }
 
+    /**
+     * Method to get the urgent tasks to do in the 3 next days
+     * @param printTasks the list of tasks to do
+     * @return the urgent tasks to do in the next 3 days
+     */
     private String getUrgentTasks(String printTasks) {
         StringBuilder stringBuilder = new StringBuilder();
 
         Calendar calendar = Calendar.getInstance();
+        Calendar calendarJPlus1 = Calendar.getInstance();
+        Calendar calendarJPlus2 = Calendar.getInstance();
         Calendar calendarJPlus3 = Calendar.getInstance();
+
+        Calendar[] calendars = {calendar, calendarJPlus1, calendarJPlus2, calendarJPlus3};
+
+        for (int i = 0; i < calendars.length; i++){
+            calendars[i].add(Calendar.DATE, i);
+        }
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        calendarJPlus3.add(Calendar.DATE, 3);
 
         String[] lines = printTasks.split("\n");
         for (String s: lines){
             String[] words = s.split(" ");
-            if (words[words.length-1].equals(sdf.format(calendar.getTime())) || words[words.length-1].equals(sdf.format(calendarJPlus3.getTime()))){
-                stringBuilder.append(s);
-                stringBuilder.append("\n");
+
+            for (Calendar value : calendars) {
+                if (words[words.length - 1].equals(sdf.format(value.getTime()))) {
+                    stringBuilder.append(s);
+                    stringBuilder.append("\n");
+                }
             }
         }
 

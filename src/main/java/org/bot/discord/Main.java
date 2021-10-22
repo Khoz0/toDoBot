@@ -39,7 +39,7 @@ public class Main {
 
         // Message to see the connection of the bot
         TextChannel channel = null;
-        Optional<TextChannel> textChannel = api.getTextChannelById("726095642924941343");
+        Optional<TextChannel> textChannel = api.getTextChannelById("901103290576699402");
         if (textChannel.isPresent()){
             channel = textChannel.get();
         }

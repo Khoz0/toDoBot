@@ -16,7 +16,7 @@ public class MessageManager {
 
     static {
         registry.addCommand(new Command("ping", "Ping the bot", new CommandPing(), "ping", "p"));
-        registry.addCommand(new Command("todo", "add a task [optional: enter a date at the format dd/mm/yyyy]", new CommandTodo(), "todo", "t"));
+        registry.addCommand(new Command("todo", "add a task [optional: add a date at the end with the format dd/mm/yyyy]", new CommandTodo(), "todo", "t"));
         registry.addCommand(new Command("reminder", "see all the tasks", new CommandReminder(), "reminder", "re"));
         registry.addCommand(new Command("remove", "remove a tasks by its id", new CommandRemove(), "remove", "rm"));
         registry.addCommand(new Command("urgent", "Print the urgent tasks", new CommandUrgent(), "urgent", "u"));

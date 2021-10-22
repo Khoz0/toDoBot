@@ -23,7 +23,7 @@ public class CommandReminder implements CommandExecutor {
         try {
             createFile();
             String printTasks = browseFile();
-            event.getChannel().sendMessage(""+printTasks+"");
+            event.getChannel().sendMessage("Tasks to do:\n```"+printTasks+"```");
         }
         catch (Exception e) {
             System.err.println(e);
